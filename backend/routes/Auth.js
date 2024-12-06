@@ -4,7 +4,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { body, validationResult } = require("express-validator");
-const JWT_SECRATE = "secratBoy";
+const JWT_SECRATE ="secratBoy";
 const fetchDetails = require('../middleware/FetchUser')
 
 
@@ -72,17 +72,19 @@ router.post(
     }
     const { email, password } = req.body;
     try {
-      let user = await User.findOne({ email });
+      let user = await User.findOne({ email }).select("+password"); // Fetch the password explicitly
       if (!user) {
         return res.status(400).json({ error: "Please use correct email and password" });
       }
+    
       const passwordCompare = await bcrypt.compare(password, user.password);
       if (!passwordCompare) {
         return res.status(400).json({ error: "Please use correct email and password" });
       }
+    
       const payload = {
         user: {
-          id: user.id,
+          _id: user._id,
         },
       };
       const authTokenNew = jwt.sign(payload, JWT_SECRATE);
@@ -90,10 +92,14 @@ router.post(
       res.json({ authTokenNew });
     } catch (error) {
       console.error(error.message);
-      res.status(500).json({ error: "Internal server error2" });
+      res.status(500).json({ error: "Internal server error" });
     }
   }
 );
+
+
+
+
 
 
 

@@ -11,7 +11,7 @@ console.log(location.pathname)
       <nav className="navbar navbar-expand-lg new fixed-top">
         <div className="container-fluid ">
           <a className="navbar-brand" to="#">
-            Navbar
+            GymloverDeepak
           </a>
           <button
             className="navbar-toggler"
@@ -37,26 +37,20 @@ console.log(location.pathname)
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link nav-spacing" aria-current="page" to="/etc">
-                  Etc
-                </Link>
+               
               </li>
               <li className="nav-item">
-                <Link className="nav-link nav-spacing" aria-current="page" to="/etc">
-                  Etc
-                </Link>
+               
               </li>
             </ul>
             <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
+            <Link className="btn btn-outline-success mx-2" aria-current="page" role="button" to="/signup">
+                  SignUp
+                </Link>
+                <Link className="btn btn-outline-success mx-2" aria-current="page"  role="button" to="/login">
+                  Login
+                </Link>
+             
             </form>
           </div>
         </div>

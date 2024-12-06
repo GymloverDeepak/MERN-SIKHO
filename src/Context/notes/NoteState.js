@@ -37,7 +37,22 @@ const [allNotes,setAllNotes]= useState([null])
   };
 
   // Add note
-
+  const userLogin = async (data) => {
+    try {
+      const response = await axios.post(
+        `${GET_API_URL}/api/auth/login`,
+        data, // Pass the actual data as the body
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log("userLogin", response.data);
+    } catch (err) {
+      console.error("Error adding note:", err.message);
+    }
+  };
   const addNote = async (data) => {
     try {
       const response = await axios.post(
@@ -118,7 +133,7 @@ const [allNotes,setAllNotes]= useState([null])
   };
 
   return (
-    <NoteContext.Provider value={{ update,allNotes,fetchData, ChangeState ,deleteNote,updateNote,addNote}}>
+    <NoteContext.Provider value={{ update,allNotes,fetchData, ChangeState ,deleteNote,updateNote,addNote,userLogin}}>
       {props.children}
     </NoteContext.Provider>
   );
