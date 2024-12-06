@@ -36,3 +36,74 @@
     transform: rotate(360deg);
   }
 }
+.nav-spacing {
+  margin-right: 15px; /* Adds 15px of space to the right of each link */
+}
+
+.navbar .nav-link {
+  font-size: 16px; /* Optional: Adjust the font size for better readability */
+}
+.custom-navbar {
+  background-color: #4CAF50; /* Example green color */
+  color: rgb(183, 220, 180); /* Optional: Set text color to white */
+}
+
+.nav-link {
+  color: #f60e67; /* Ensure links are visible */
+}
+
+.navbar-link:hover {
+  color: hsl(12, 75%, 51%); /* Optional: Add a hover effect */
+}
+.container {
+  max-width: 500px; /* Set a fixed width for the form */
+  margin: 50px auto; /* Center the form vertically and horizontally */
+  padding: 20px; /* Add some padding inside the form */
+  background-color: #f9f9f9; /* Light background color */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border: 1px solid #ddd; /* Optional: border */
+}
+
+h4 {
+  text-align: center; /* Center the heading */
+  margin-bottom: 20px; /* Add space below the heading */
+  color: #333; /* Text color */
+}
+
+label {
+  display: block; /* Ensure labels are on a new line */
+  margin-bottom: 5px; /* Add space below the label */
+  font-weight: bold; /* Make labels bold */
+  color: #555; /* Label text color */
+}
+
+input {
+  width: 100%; /* Full width input fields */
+  padding: 8px; /* Add padding for comfortable typing */
+  margin-bottom: 15px; /* Space between input fields */
+  border: 1px solid #ccc; /* Border for input fields */
+  border-radius: 4px; /* Rounded input fields */
+  box-sizing: border-box; /* Include padding in width */
+}
+
+button {
+  width: 100%; /* Full width button */
+  padding: 10px; /* Button padding */
+  background-color: #007bff; /* Primary button color */
+  color: #fff; /* Button text color */
+  border: none; /* Remove button border */
+  border-radius: 4px; /* Rounded button */
+  font-size: 16px; /* Increase font size */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+} 
+.new{
+  background-color: #60cced;
+}
+i{
+  cursor: pointer;
+}

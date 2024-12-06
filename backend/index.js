@@ -1,29 +1,25 @@
 const connectToMongo = require('./db');
-const express = require('express')
+const express = require('express');
+const cors = require('cors');
+
 connectToMongo();
 
+const app = express();
+const port = 5000;
 
+// Enable CORS
+app.use(cors({
+  origin: 'http://localhost:3000', // Allow requests from this origin
+}));
 
-const app = express()
-const port = 5000
-app.use(express.json())
+// Middleware to parse JSON
+app.use(express.json());
 
-// available routes 
+// Available routes
+app.use('/api/auth', require('./routes/Auth'));
+app.use('/api/notes', require('./routes/Notes'));
 
-
-// app.get('/', (req, res) => {
-//   res.send('Hello Deepak ready to MERN!')
-// })
-// app.get('/welcome', (req, res) => {
-//     res.send('Welcome to MERN ')
-//   })
-//   app.get('/login', (req, res) => {
-//     res.send('Login Successfully in  MERN!') 
-//   })
-
-app.use('/api/auth',require('./routes/Auth'))
-app.use('/api/notes',require('./routes/Notes'))
-
+// Start the server
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Example app listening on port ${port}`);
+});

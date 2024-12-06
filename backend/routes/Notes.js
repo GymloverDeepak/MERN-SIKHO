@@ -75,7 +75,7 @@ router.put(
 
             // Verify if the user owns the note
             if (note.user.toString() !== req.user.id) {
-                return res.status(401).send(" चल भाग तू किसी और की नोट अपडेट  कर रहा हे ");
+                return res.status(401).send(" चल भाग तू किसी और की नोट अपडेट कर रहा हे ");
             }
 
             // Update the note
