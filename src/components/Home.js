@@ -10,7 +10,7 @@ function Home() {
     title: '',
     author: '',
     description: '',
-    tags: '',
+    tag: '',
   });
 
   // Handle form input changes
@@ -25,7 +25,7 @@ function Home() {
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent page reload
     addNote(note); // Call addNote function
-    setNote({ title: '', author: '', description: '', tags: '' }); // Reset the form
+    setNote({ title: '', author: '', description: '', tag: '' }); // Reset the form
   };
 
   return (
@@ -68,7 +68,7 @@ function Home() {
             <input
               type="text"
               name="tags"
-              value={note.tags}
+              value={note.tag}
               onChange={handleChange}
               required
             />

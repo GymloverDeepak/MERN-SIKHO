@@ -63,20 +63,41 @@ const [allNotes,setAllNotes]= useState([null])
 
   // delete note
 
-  const deleteNote = (id) => {};
+  const deleteNote = async (id) => {
+    try {
+      const response = await axios.delete(
+        `${GET_API_URL}/api/notes//deletenote/${id}`,
+         // Pass the actual data as the body
+        {
+          headers: {
+            "auth-token":
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjczNDdkOWY2YjZhODcwN2U0YWRjMjA1In0sImlhdCI6MTczMTQ5MzI3OX0.tDDz0rVSGu-_ccVSi61TSURPajVfedqoCfLjlkrkc-c", // Replace with your actual token
+            "Content-Type": "application/json",
+          },
+        }
+      );
+  
+      // Fetch the updated notes after adding
+      fetchData();
+    } catch (err) {
+      console.error("Error adding note:", err.message);
+    }
+  };
 
   // update edit  note
 
   const updateNote = async (data) => {
     try {
-      const response = await axios.post(`${GET_API_URL}/api/notes//updatenote/${data.id}`, {
+      const response = await axios.put(`${GET_API_URL}/api/notes//updatenote/${data._id}`,   data, // Pass the actual data as the body
+      {
         headers: {
-         "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjczNDdkOWY2YjZhODcwN2U0YWRjMjA1In0sImlhdCI6MTczMTQ5MzI3OX0.tDDz0rVSGu-_ccVSi61TSURPajVfedqoCfLjlkrkc-c", // Replace with your actual token
+          "auth-token":
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjczNDdkOWY2YjZhODcwN2U0YWRjMjA1In0sImlhdCI6MTczMTQ5MzI3OX0.tDDz0rVSGu-_ccVSi61TSURPajVfedqoCfLjlkrkc-c", // Replace with your actual token
           "Content-Type": "application/json",
         },
       });
       // Use the response data
-      console.log( "updateNote",response.data);
+      fetchData();
       // setData(response.data);
     } catch (err) {
       console.error("Error fetching data:", err.message);

@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from 'react';
 import NoteContext from '../Context/notes/NoteContext';
 
-function NoteItem({ allNotes }) {
-  const { fetchData } = useContext(NoteContext);
+function NoteItem({ allNotes ,update}) {
+  const { fetchData,deleteNote } = useContext(NoteContext);
 
   useEffect(() => {
     fetchData();
@@ -17,8 +17,8 @@ function NoteItem({ allNotes }) {
             <div className="card-body">
               <h5 className="card-title">{note?.title || 'No Title'}</h5>
               <p className="card-text">{note?.description || 'No Description'}</p>
-              <i className="fa-solid fa-trash mx-2"></i>
-              <i className="fa-regular fa-pen-to-square mx-2"></i>
+              <i className="fa-solid fa-trash mx-2" onClick={()=>deleteNote(note._id)}></i>
+              <i className="fa-regular fa-pen-to-square mx-2" onClick={()=>update(note)}></i>
             </div>
           </div>
         ))
